@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Mental Fatigue Detector</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero-section">
+        <div class="hero-copy">
+          <span class="eyebrow">Student Mental Fatigue Detector</span>
+          <h1>AI-Powered Wellness and Performance Analysis</h1>
+          <p>Complete the assessment to reveal personalized fatigue insights, charts, and recovery recommendations.</p>
+          <div class="hero-actions">
+            <button id="start-btn" class="btn btn-primary">Start Assessment</button>
+            <span class="hero-highlight">10 interactive wellness modules</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="brain-icon">
+            <div class="brain-layer brain-layer-1"></div>
+            <div class="brain-layer brain-layer-2"></div>
+            <div class="brain-layer brain-layer-3"></div>
+          </div>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="assessment-panel" id="assessment-panel">
+          <div class="panel-head">
+            <div>
+              <p class="section-label">Assessment Progress</p>
+              <h2><span id="progress-step">1</span> / 10 Modules</h2>
+            </div>
+            <div class="progress-summary"><span id="progress-percent">10%</span> Complete</div>
+          </div>
+          <div class="progress-track">
+            <div id="progress-bar" class="progress-fill"></div>
+          </div>
+
+          <div class="module-card glass-card" id="module-card">
+            <div class="module-header">
+              <div>
+                <p class="module-level">Module <span id="module-number">1</span></p>
+                <h3 id="module-title">Sleep Patterns</h3>
+              </div>
+              <div class="module-summary" id="module-summary">Evaluate sleep duration and quality.</div>
+            </div>
+            <form id="module-form" class="module-form"></form>
+          </div>
+
+          <div class="module-actions">
+            <button id="prev-btn" class="btn btn-secondary" disabled>Previous</button>
+            <button id="save-btn" class="btn btn-light">Save Inputs</button>
+            <button id="next-btn" class="btn btn-primary">Next</button>
+          </div>
+        </section>
+
+        <section class="results-section glass-card hidden" id="results-section">
+          <div class="results-grid">
+            <div class="result-card result-card-large" id="score-card">
+              <p class="card-label">Fatigue Score</p>
+              <h2 id="fatigue-score">--</h2>
+              <p class="card-text">A simulated AI score between 0 and 100.</p>
+            </div>
+            <div class="result-card" id="wellness-card">
+              <p class="card-label">Wellness Score</p>
+              <h2 id="wellness-score">--</h2>
+              <p class="card-text">Higher means stronger resilience.</p>
+            </div>
+            <div class="result-card" id="level-card">
+              <p class="card-label">Predicted Level</p>
+              <div id="level-badge" class="level-badge">--</div>
+            </div>
+          </div>
+
+          <div class="analysis-actions">
+            <button id="analyze-btn" class="btn btn-primary btn-wide">Analyze Fatigue</button>
+            <div id="analyze-loader" class="loader hidden"><span></span><span></span><span></span></div>
+          </div>
+
+          <div class="chart-grid">
+            <div class="chart-card glass-card">
+              <div class="chart-header">
+                <p>Wellness Radar</p>
+                <strong>Sleep • Stress • Focus • Mood • Exercise • Hydration</strong>
+              </div>
+              <canvas id="radarChart"></canvas>
+            </div>
+            <div class="chart-card glass-card">
+              <div class="chart-header">
+                <p>Top Fatigue Factors</p>
+                <strong>See what contributes most.</strong>
+              </div>
+              <canvas id="barChart"></canvas>
+            </div>
+          </div>
+
+          <div class="recommendation-panel">
+            <p class="section-label">AI Recommendations</p>
+            <div id="recommendations" class="recommendation-grid"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
